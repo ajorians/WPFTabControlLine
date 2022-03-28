@@ -37,5 +37,33 @@ namespace TestWPFTabHorizontalLine
          get { return (Brush)GetValue( TabUnderlineBrushProperty ); }
          set { SetValue( TabUnderlineBrushProperty, value ); }
       }
+
+      // <summary>
+      // TabHeadersLineVisibility Dependency Property
+      // </summary>
+      public static readonly DependencyProperty TabHeadersLineVisibilityProperty =
+                DependencyProperty.Register( nameof( TabHeadersLineVisibility ),
+                                            typeof( Visibility ),
+                                            typeof( CustomTabControl ),
+                                            new PropertyMetadata( Visibility.Collapsed ) );
+
+      public Visibility TabHeadersLineVisibility
+      {
+         get { return (Visibility)GetValue( TabHeadersLineVisibilityProperty ); }
+         set { SetValue( TabHeadersLineVisibilityProperty, value ); }
+      }
+
+      public static readonly DependencyProperty TabHeaderlineBrushProperty =
+                DependencyProperty.Register( nameof( TabHeaderlineBrush ),
+                                            typeof( Brush ),
+                                            typeof( CustomTabControl ),
+                                            new PropertyMetadata( Brushes.Gray) );
+
+      public Brush TabHeaderlineBrush
+      {
+         get { return (Brush)GetValue( TabHeaderlineBrushProperty ); }
+         set { SetValue( TabHeaderlineBrushProperty, value ); }
+      }
+
    }
 }
