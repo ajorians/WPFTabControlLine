@@ -440,8 +440,9 @@
                   <Grid KeyboardNavigation.TabNavigation="Local">
                      <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
-                     </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>
                      <!--<i:Interaction.Behaviors>
                         <themes:ThemableVisualStateBehavior />
                      </i:Interaction.Behaviors>-->
@@ -472,8 +473,14 @@
                                KeyboardNavigation.TabIndex="1"
                                Background="Transparent"
                                Margin="0" />
-                     <Border x:Name="Border"
-                             Grid.Row="1"
+                        <Line Grid.Row="1"
+                              Stroke="{TemplateBinding TabHeaderlineBrush}"
+                              X1="0"
+                              X2="{TemplateBinding ActualWidth}"
+                              Margin="0,-1,0,0"
+                              Visibility="{TemplateBinding TabHeadersLineVisibility}" />
+                        <Border x:Name="Border"
+                             Grid.Row="2"
                              BorderThickness="0"
                              BorderBrush="{TemplateBinding BorderBrush}"
                              CornerRadius="2"
@@ -517,14 +524,14 @@
          <Setter Property="BorderThickness"
                  Value="0,0,0,2" />
          <Setter Property="BorderBrush"
-                 Value="{StaticResource ControlBrush}" />
+                 Value="Transparent" />
          <Style.Triggers>
             <Trigger Property="IsSelected"
                      Value="True">
                <Setter Property="BorderThickness"
                        Value="0,0,0,2" />
                <Setter Property="BorderBrush"
-                       Value="Blue" />
+                          Value="#98C92D" />
                <Setter Property="FontWeight"
                        Value="SemiBold" />
             </Trigger>
@@ -620,7 +627,10 @@
                                              ItemContainerStyle="{StaticResource CamtasiaHomeRecentTabItemStyle}"
                                              SelectedIndex="{Binding RecentContentViewModel.SelectedCollectionIndex}"
                                              Style="{StaticResource FlatTabControlStyleTools}"
-                                 Height="275">
+                                 TabHeadersLineVisibility="Visible"
+                                 TabHeaderlineBrush="#425357"
+                                 Width="500"
+                                 Height="275"><!--Setting Width isn't required; but makes it so I can see it contained-->
             <local:CustomTabControl.ContentTemplate>
                <DataTemplate>
                   <Grid>
